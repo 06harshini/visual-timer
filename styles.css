@@ -1,0 +1,322 @@
+* {
+    font-family: monospace, "Open Sans", sans-serif;
+}
+
+:root {
+    --bg: #071233;
+    --bg-secondary: #071b33;
+    --text: #e6f0ff;
+    --accent: #22c55e;
+    --muted: #94a3b8;
+}
+
+[data-theme="light"] {
+    --bg: #f8fafc;
+    --bg-secondary: #eef2f7;
+    --text: #0f172a;
+    --accent: #22c55e;
+    --muted: #475569;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    appearance: textfield;
+}
+
+.timeinput::placeholder {
+    color: #64748b;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg);
+    color: var(--text);
+    gap: 12px;
+    margin: 0;
+    padding: 16px;
+    font-family: monospace, sans-serif;
+}
+
+.timeinput {
+    width: 72px;
+    height: 42px;
+    font-size: 24px;
+    text-align: center;
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent);
+    color: var(--text);
+    border-radius: 14px;
+    -webkit-appearance: none;
+}
+
+.inputcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.controlscontainer button,
+#set {
+    width: 52px;
+    height: 52px;
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    background: var(--bg-secondary);
+    color: black;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: all 150ms ease;
+}
+
+.controlscontainer button:hover,
+#set:hover {
+    background: var(--accent);
+    /* filter: brightness(1.4) saturate(1.1); */
+}
+
+.controlscontainer button .control-icon,
+#set .control-icon {
+    color: var(--accent);
+}
+
+.controlscontainer button .control-icon [stroke],
+#set .control-icon [stroke] {
+    stroke: var(--accent) !important;
+}
+
+.controlscontainer button .control-icon [fill]:not([fill="none"]),
+#set .control-icon [fill]:not([fill="none"]) {
+    fill: var(--accent) !important;
+}
+
+.controlscontainer button:hover .control-icon [stroke],
+#set:hover .control-icon [stroke] {
+    stroke: var(--bg-secondary) !important;
+}
+
+.controlscontainer button:hover .control-icon [fill]:not([fill="none"]),
+#set:hover .control-icon [fill]:not([fill="none"]) {
+    fill: var(--bg-secondary) !important;
+}
+
+.circle {
+    width: 26vw;
+    height: 26vw;
+    max-width: 360px;
+    max-height: 360px;
+    border-radius: 50%;
+    background: conic-gradient(var(--accent) 0deg,
+            var(--bg-secondary) 0deg);
+}
+
+#set {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controlscontainer {
+    display: flex;
+    gap: 18px;
+}
+
+.page-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0
+}
+
+.github-button {
+    background: transparent;
+    border: 1px solid var(--muted);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600
+}
+
+.github-button:hover {
+    border-color: var(--accent)
+}
+
+
+@media (max-width: 600px) {
+    .circle {
+        width: 60vw;
+        height: 60vw;
+        max-width: none;
+    }
+
+    .inputcontainer {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .controlscontainer button,
+    #set {
+        width: 64px;
+        height: 64px;
+        font-size: 22px;
+    }
+
+    .controlscontainer button:hover,
+    #set:hover {
+        background: var(--bg-secondary);
+        filter: brightness(1.4) saturate(1.1);
+    }
+
+    .controlscontainer button:hover img,
+    #set:hover img {
+        filter: drop-shadow(0 0 2px var(--accent));
+    }
+
+    .timeinput {
+        width: 110px;
+        height: 48px;
+        font-size: 36px;
+    }
+
+    body {
+        padding: 16px;
+    }
+}
+
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.switch {
+    display: inline-block
+}
+
+.switch input {
+    display: none
+}
+
+.slider {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--bg-secondary);
+    padding: 4px;
+    box-sizing: content-box;
+    border: 1px solid rgba(255, 255, 255, 0.03)
+}
+
+.slider .icon-sun {
+    margin-right: 6px;
+    opacity: 0.85
+}
+
+.slider .icon-moon {
+    margin-left: 6px;
+    opacity: 0.85
+}
+
+.switch input:checked+.slider {
+    background: var(--bg-secondary);
+}
+
+.switch input:checked+.slider .icon-sun {
+    opacity: 0.25
+}
+
+.switch input:not(:checked)+.slider .icon-moon {
+    opacity: 0.25
+}
+
+.accent-picker {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px
+}
+
+.accent-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.06);
+    cursor: pointer
+}
+
+.accent-btn:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.12)
+}
+
+#accentColor {
+    width: 36px;
+    height: 28px;
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer
+}
+
+
+.switch-sound input {
+    display: none
+}
+
+.slider-sound {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--bg-secondary);
+    padding: 4px;
+    box-sizing: content-box;
+    border: 1px solid rgba(255, 255, 255, 0.03)
+}
+
+.slider-sound .icon-sound-on {
+    margin-right: 6px;
+    opacity: 0.85
+}
+
+.slider-sound .icon-sound-off {
+    margin-left: 6px;
+    opacity: 0.85
+}
+
+.switch-sound input:checked+.slider-sound .icon-sound-on {
+    opacity: 0.85
+}
+
+.switch-sound input:checked+.slider-sound .icon-sound-off {
+    opacity: 0.25
+}
+
+.switch-sound input:not(:checked)+.slider-sound .icon-sound-on {
+    opacity: 0.25
+}
+
+.switch-sound input:not(:checked)+.slider-sound .icon-sound-off {
+    opacity: 0.85
+}
